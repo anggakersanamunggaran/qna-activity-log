@@ -60,14 +60,20 @@ const constructInterviewInfo = (params) => {
 }
 
 const sendEvent = (params) => {
+  let recordedParams = getBaseInfo()
+  if (!recordedParams.isProctoring) {
+    return new Promise((resolve, reject) => {
+      resolve('no action')
+    });
+  }
   const URL = constructURL()
   const logInfo = constructInterviewInfo(params)
   const requestParams = {
     activity: logInfo.activity,
     interview_code: logInfo.interviewCode
   }
-  console.log(logInfo)
-  console.log(requestParams)
+  // console.log(logInfo)
+  // console.log(requestParams)
 
   return httpHandler('POST', URL, requestParams)
 }
@@ -96,7 +102,8 @@ export function initialize(env, params, onError = () => {}, onUnhandledRejection
     'interviewCode': params.interview_code || '',
     'candidate_id': params.candidate_id || 0,
     'job_id': params.job_id || 0,
-    'company_id': params.company_id || 0
+    'company_id': params.company_id || 0,
+    'isProctoring': params.isProctoring || 0
   }
 
   localStorage.setItem(logEnv, env)
