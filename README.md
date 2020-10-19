@@ -30,7 +30,8 @@ const baseParam = {
     interview_code: 'TEST-123', // string
     candidate_id: 1111, // number
     job_id: 2222, // number
-    company_id: 3333 // number
+    company_id: 3333, // number
+    isProctoring: 0,// 0 not active 1 is active
 }
 
 Actlog.initialize(env, baseParam);
@@ -49,7 +50,6 @@ Actlog.recordEvent(act_log);
 #### Promise support
 ```
 ...
-
 Actlog.recordEvent(params)
     .then(result => {
         console.log(`result : ${result}`)
