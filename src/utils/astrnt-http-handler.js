@@ -17,7 +17,7 @@ export default (method, url, params, mimeType = 'application/json') => {
       const responseCode = response.status || request.status
 
       if (responseCode >= 200 && responseCode < 300) {
-        resolve(response.message || response)
+        resolve(response || response)
       } else {
         reject(response.message || response)
       }

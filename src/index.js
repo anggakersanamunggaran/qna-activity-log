@@ -35,7 +35,7 @@ const constructURL = () => {
   }
 
   const baseURL = `https://${domainPrefix}.astrnt.co`
-  return `${baseURL}/api/v2/activity/logs`
+  return `${baseURL}/api/v2/logs/activity`
 }
 
 const constructInterviewInfo = (params) => {
