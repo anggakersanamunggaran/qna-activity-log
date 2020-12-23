@@ -54,7 +54,7 @@ const getOSInfo = () => {
 
   switch (os) {
     case 'Mac OS X':
-      osVersion = /Mac OS X (10[\.\_\d]+)/.exec(ua)[1]
+      osVersion = (/Mac OS X (10[\.\_\d]+)/.exec(ua) ? /Mac OS X (10[\.\_\d]+)/.exec(ua)[1] : '11')
       break
 
     case 'Android':

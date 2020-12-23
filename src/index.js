@@ -17,8 +17,8 @@ const getEnv = () => {
 }
 
 const getBaseInfo = () => {
-  const info = localStorage.getItem(logBaseInfo)
-  return JSON.parse(info)
+  const info = JSON.parse(localStorage.getItem(logBaseInfo))
+  return info ? info : {}
 }
 
 const constructURL = () => {
